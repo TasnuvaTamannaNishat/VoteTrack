@@ -1,0 +1,15 @@
+DROP TABLE Voter2 CASCADE CONSTRAINTS;
+CREATE TABLE Voter2 AS
+SELECT *
+FROM Voter
+WHERE VGender = 'Female';
+commit;
+select * from Voter2;
+
+CREATE OR REPLACE TRIGGER Voter2Trigger_after_insert
+AFTER INSERT
+ON Voter2
+BEGIN
+   DBMS_OUTPUT.PUT_LINE('VALUES INSERTED INTO Voter2 TABLE');
+END;
+/
